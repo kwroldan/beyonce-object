@@ -28,24 +28,27 @@ const YonceHitSongs = beyonceHash.hits
 const YonceHitMovies = beyonceHash.movies
 
 // 1. Print all the songs
-  function printAllSongs(array) {
-    const hitSongs = array.map (element => {
-      return element.title  
-    })
-    return hitSongs
+  function printAllSongs(songs) {
+    const allSongs = YonceHitSongs.forEach(hit =>
+      console.log(hit))
 }
 
 // 2. Print all the movies
 function printAllMovies(movies) {
-  const hitMovies = movies.map (movie => {
-      return movie.title
-  })
-  return hitMovies
+  const allMovies = movies.forEach (movie => {
+      console.log(movie)
+    })
 }
 
+
 // 3. Return an array of all Beyonce's hit song titles
-function hitSongTitles() {
+function hitSongTitles(songs) {
+  const hitSongs = songs.map (song => {
+    return song.title  
+  })
+  return hitSongs
 }
+
 
 // 4. Return an array of all Beyonce's fierceness ratings
 function allFiercenessRatings() {
@@ -118,3 +121,7 @@ function movieRatingsByName() {
 // 21. Return an object with Beyonce's hairstyles as the keys and a tally of each hairstyle, eg. `{ "blonde": 3, ... }`
 function hairStyleFrequency() {
 }
+
+console.log(printAllSongs(YonceHitSongs))
+console.log(printAllMovies(YonceHitMovies))
+console.log(hitSongTitles(YonceHitSongs))
