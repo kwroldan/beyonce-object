@@ -24,13 +24,23 @@ const beyonceHash = {
     { title: 'The Fighting Temptations', year: 2003, rating: 5}
   ]
 };
+const YonceHitSongs = beyonceHash.hits
+const YonceHitMovies = beyonceHash.movies
 
 // 1. Print all the songs
-function printAllSongs() {
+  function printAllSongs(array) {
+    const hitSongs = array.map (element => {
+      return element.title  
+    })
+    return hitSongs
 }
 
 // 2. Print all the movies
-function printAllMovies() {
+function printAllMovies(movies) {
+  const hitMovies = movies.map (movie => {
+      return movie.title
+  })
+  return hitMovies
 }
 
 // 3. Return an array of all Beyonce's hit song titles
