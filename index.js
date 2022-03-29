@@ -111,11 +111,23 @@ function sorry(songs) {
 }
 
 // 11. Return a given song
-function getSong() {
+function getSong(songs, songName) {
+  const requestedSong = songs.find(song => {
+    if (song.title == songName) {
+      return song
+    }
+  })
+  return requestedSong
 }
 
 // 12. Return all hit songs where Beyonce's fierceness rating is 10
-function fiercestHits() {
+function fiercestHits(songs) {
+  const fierceSongs = songs.filter(song => {
+    if (song.fierceness == 10) {
+      return song
+    }
+  })
+  return fierceSongs
 }
 
 // 13. Return the sum of Beyonce's fierceness value for all of her hit songs
@@ -164,3 +176,5 @@ console.log(getMoviesByDateGTE(YonceHitMovies, 2008))
 console.log(groupHits(YonceHitSongs))
 console.log(findBlondeHit(YonceHitSongs))
 console.log(sorry(YonceHitSongs))
+console.log(getSong(YonceHitSongs, "Bootylicious"))
+console.log(fiercestHits(YonceHitSongs))
