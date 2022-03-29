@@ -131,7 +131,13 @@ function fiercestHits(songs) {
 }
 
 // 13. Return the sum of Beyonce's fierceness value for all of her hit songs
-function hitFiercenessSum() {
+function hitFiercenessSum(songs) {
+  const fierceValues = songs.map(song => {
+    return song.fierceness
+  })
+  let sum = 0;
+  fierceValues.forEach(value => {return sum += value;})
+  return sum
 }
 
 // 14. Return the average fierceness value for all Beyonce's hit songs
@@ -166,7 +172,7 @@ function movieRatingsByName() {
 function hairStyleFrequency() {
 }
 
-console.log(printAllSongs(YonceHitSongs))
+/*console.log(printAllSongs(YonceHitSongs))
 console.log(printAllMovies(YonceHitMovies))
 console.log(hitSongTitles(YonceHitSongs))
 console.log(allFiercenessRatings(YonceHitSongs))
@@ -177,4 +183,5 @@ console.log(groupHits(YonceHitSongs))
 console.log(findBlondeHit(YonceHitSongs))
 console.log(sorry(YonceHitSongs))
 console.log(getSong(YonceHitSongs, "Bootylicious"))
-console.log(fiercestHits(YonceHitSongs))
+console.log(fiercestHits(YonceHitSongs))*/
+console.log(hitFiercenessSum(YonceHitSongs))
