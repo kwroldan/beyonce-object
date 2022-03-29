@@ -141,23 +141,47 @@ function hitFiercenessSum(songs) {
 }
 
 // 14. Return the average fierceness value for all Beyonce's hit songs
-function hitFiercenessAverage() {
+function hitFiercenessAverage(songs) {
+  return (hitFiercenessSum(songs) / songs.length).toFixed(2);
 }
 
 // 15. Return the sum of Beyonce's rating value for all of her movies
-function ratingSum() {
+function ratingSum(movies) {
+  const ratingValues = movies.map(movie => {
+    return movie.rating
+  })
+  let sum = 0;
+  ratingValues.forEach(value => {return sum += value;})
+  return sum
 }
 
 // 16. Return the average rating value for all of her movies
-function ratingAverage() {
+function ratingAverage(movies) {
+  return (ratingSum(movies) / movies.length).toFixed(2);
 }
 
 // 17. Return the sum of the total number of dancers in all of the hit song videos
-function hitDancerSum() {
+function hitDancerSum(songs) {
+  const numberOfDancers = songs.map(song => {
+    return song.dancers
+  })
+  let sum = 0;
+  numberOfDancers.forEach(number => {return sum += number})
+  return sum
 }
 
 // 18. Return an array of Beyonce's hairstyles without repeats
-function uniqueHairstyles() {
+function getHairstyles(songs) {
+  const allHairstyles = songs.map(song => {
+    return song.hair
+  })
+  return allHairstyles
+}
+
+function uniqueHairstyles(songs) {
+  let hairstyleList = getHairstyles(songs).flat();
+  let noDuplicates = [...new Set(hairstyleList)];
+  return noDuplicates
 }
 
 // 19. Return an object where the properties are song names and the value is an object which contains that song's fierceness and the average fierceness for all songs
@@ -183,5 +207,10 @@ console.log(groupHits(YonceHitSongs))
 console.log(findBlondeHit(YonceHitSongs))
 console.log(sorry(YonceHitSongs))
 console.log(getSong(YonceHitSongs, "Bootylicious"))
-console.log(fiercestHits(YonceHitSongs))*/
+console.log(fiercestHits(YonceHitSongs))
 console.log(hitFiercenessSum(YonceHitSongs))
+console.log(hitFiercenessAverage(YonceHitSongs))
+console.log(ratingSum(YonceHitMovies))
+console.log(ratingAverage(YonceHitMovies))
+console.log(hitDancerSum(YonceHitSongs))
+console.log(uniqueHairstyles(YonceHitSongs))*/
