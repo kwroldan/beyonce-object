@@ -86,15 +86,28 @@ function getMoviesByDateGTE(movies, targetYear) {
 }
 
 // 8. Return all hit songs where Beyonce was in a group
-function groupHits() {
+function groupHits(songs) {
+  const groupOrNah = songs.filter(song => {
+    if (song.group == true) {
+      return song
+    }
+  })
+  return groupOrNah
 }
 
 // 9. Return a hit song where Beyonce's hair is blonde
-function findBlondeHit() {
+function findBlondeHit(songs) {
+  const blondeSong = songs.find(song => {
+    return song.hair.includes("blonde")
+  })
+  return blondeSong
 }
 
 // 10. Return the hit song "Sorry"
-function sorry() {
+function sorry(songs) {
+  return songs.find(song => {
+    return song.title == "Sorry"
+  })
 }
 
 // 11. Return a given song
@@ -148,3 +161,6 @@ console.log(allFiercenessRatings(YonceHitSongs))
 console.log(songsWithBodySuits(YonceHitSongs))
 console.log(getSongsByFiercenessGTE(YonceHitSongs, 9))
 console.log(getMoviesByDateGTE(YonceHitMovies, 2008))
+console.log(groupHits(YonceHitSongs))
+console.log(findBlondeHit(YonceHitSongs))
+console.log(sorry(YonceHitSongs))
