@@ -33,6 +33,7 @@ const YonceHitMovies = beyonceHash.movies
       console.log(hit))
 }
 
+
 // 2. Print all the movies
 function printAllMovies(movies) {
   const allMovies = movies.forEach (movie => {
@@ -51,19 +52,37 @@ function hitSongTitles(songs) {
 
 
 // 4. Return an array of all Beyonce's fierceness ratings
-function allFiercenessRatings() {
+function allFiercenessRatings(songs) {
+  const fierceRatings = songs.map (song => {
+    return song.fierceness 
+  })
+  return fierceRatings
 }
 
+
 // 5. Return all the songs where Beyonce is wearing a bodysuit or a bodysuit is part of the video theme
-function songsWithBodySuits() {
+function songsWithBodySuits(songs) {
+  const bodysuitSongs = songs.filter(song => {
+    return (song.signature_look.includes("bodysuit")) 
+    || (song.video_theme.includes("bodysuit"))
+  })
+  return bodysuitSongs
 }
 
 // 6. Return an array with all of the songs where Beyonce's fierceness is greater than or equal to a given number
-function getSongsByFiercenessGTE() {
+function getSongsByFiercenessGTE(songs, fierceNumber) {
+  const fierceSongs = songs.filter(song => {
+    return (song.fierceness >= fierceNumber)
+  })
+  return fierceSongs
 }
 
 // 7. Return an array with all of the movies Beyonce made after or during a given year
-function getMoviesByDateGTE() {
+function getMoviesByDateGTE(movies, targetYear) {
+  const yearOfMovies = movies.filter(movie => {
+    return (movie.year >= targetYear)
+  })
+  return yearOfMovies
 }
 
 // 8. Return all hit songs where Beyonce was in a group
@@ -125,3 +144,7 @@ function hairStyleFrequency() {
 console.log(printAllSongs(YonceHitSongs))
 console.log(printAllMovies(YonceHitMovies))
 console.log(hitSongTitles(YonceHitSongs))
+console.log(allFiercenessRatings(YonceHitSongs))
+console.log(songsWithBodySuits(YonceHitSongs))
+console.log(getSongsByFiercenessGTE(YonceHitSongs, 9))
+console.log(getMoviesByDateGTE(YonceHitMovies, 2008))
