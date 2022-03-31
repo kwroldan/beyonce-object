@@ -29,8 +29,8 @@ const YonceHitMovies = beyonceHash.movies
 
 // 1. Print all the songs
   function printAllSongs(songs) {
-    const allSongs = YonceHitSongs.forEach(hit =>
-      console.log(hit))
+    const allSongs = songs.forEach(song =>
+      console.log(song))
 }
 
 
@@ -185,15 +185,60 @@ function uniqueHairstyles(songs) {
 }
 
 // 19. Return an object where the properties are song names and the value is an object which contains that song's fierceness and the average fierceness for all songs
-function songFiercenessByName() {
+function songFiercenessByName(songs) {
+  let someArray = songs.map(song => {
+    return {
+      title: song.title,
+      fierceness: song.fierceness,
+      averageFierceness: hitFiercenessAverage(songs)
+    }
+  })
+  const someObject = someArray.reduce((songsObject, song) => {
+    const newArrayWhoDis = {
+      ...songsObject,
+      [song.title]: song,
+    }
+      delete song.title
+      return newArrayWhoDis
+  }, {}) 
+  return someObject
 }
 
+
+
 // 20. Return an object where the properties are movie names and the value is an object which contains that movie's rating and the average rating for all movies
-function movieRatingsByName() {
+function movieRatingsByName(movies) {
+  let movieArray = movies.map(movie => {
+    return {
+    title: movie.title,
+    rating: movie.rating,
+    averageRating: ratingAverage(movies)
+    }
+  })
+  const someOtherObject = movieArray.reduce((moviesObject, movie) => {
+      const newMovieArray = {
+    ...moviesObject,
+    [movie.title]: movie,
+    }
+    delete movie.title
+    return newMovieArray
+  }, {})
+  return someOtherObject
 }
 
 // 21. Return an object with Beyonce's hairstyles as the keys and a tally of each hairstyle, eg. `{ "blonde": 3, ... }`
-function hairStyleFrequency() {
+function hairStyleFrequency(songs) {
+  const hairArray = getHairstyles(YonceHitSongs);
+  const mergedHairArray = [].concat.apply([], hairArray);
+  const hairFrequencyArray = mergedHairArray.reduce(function (allHairstyles, hair) {
+    if (hair in allHairstyles) {
+      allHairstyles[hair]++
+    } else {
+      allHairstyles[hair] = 1
+    }
+    return allHairstyles
+  }, {})
+  return hairFrequencyArray
 }
 
 /*console.log(printAllSongs(YonceHitSongs))
@@ -213,4 +258,7 @@ console.log(hitFiercenessAverage(YonceHitSongs))
 console.log(ratingSum(YonceHitMovies))
 console.log(ratingAverage(YonceHitMovies))
 console.log(hitDancerSum(YonceHitSongs))
-console.log(uniqueHairstyles(YonceHitSongs))*/
+console.log(uniqueHairstyles(YonceHitSongs))
+console.log(songFiercenessByName(YonceHitSongs))
+console.log(movieRatingsByName(YonceHitMovies))
+console.log(hairStyleFrequency(YonceHitSongs))*/
