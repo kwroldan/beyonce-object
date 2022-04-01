@@ -28,106 +28,82 @@ const YonceHitSongs = beyonceHash.hits
 const YonceHitMovies = beyonceHash.movies
 
 // 1. Print all the songs
-  function printAllSongs(songs) {
-    const allSongs = songs.forEach(song =>
-      console.log(song))
+function printAllSongs(songs) {
+  return songs.forEach(song => console.log(song))
 }
 
 
 // 2. Print all the movies
 function printAllMovies(movies) {
-  const allMovies = movies.forEach (movie => {
-      console.log(movie)
-    })
+  return movies.forEach (movie => {console.log(movie)})
 }
 
 
 // 3. Return an array of all Beyonce's hit song titles
 function hitSongTitles(songs) {
-  const hitSongs = songs.map (song => {
-    return song.title  
-  })
-  return hitSongs
+  return songs.map (song => song.title)
 }
 
 
 // 4. Return an array of all Beyonce's fierceness ratings
 function allFiercenessRatings(songs) {
-  const fierceRatings = songs.map (song => {
-    return song.fierceness 
-  })
-  return fierceRatings
+  return songs.map (song => song.fierceness)
 }
 
 
 // 5. Return all the songs where Beyonce is wearing a bodysuit or a bodysuit is part of the video theme
 function songsWithBodySuits(songs) {
-  const bodysuitSongs = songs.filter(song => {
-    return (song.signature_look.includes("bodysuit")) 
-    || (song.video_theme.includes("bodysuit"))
-  })
-  return bodysuitSongs
+  return songs.filter(song => 
+    song.signature_look.includes("bodysuit") || song.video_theme.includes("bodysuit")
+  )
 }
+
 
 // 6. Return an array with all of the songs where Beyonce's fierceness is greater than or equal to a given number
 function getSongsByFiercenessGTE(songs, fierceNumber) {
-  const fierceSongs = songs.filter(song => {
-    return (song.fierceness >= fierceNumber)
-  })
-  return fierceSongs
+  return songs.filter(song => (song.fierceness >= fierceNumber))
 }
 
 // 7. Return an array with all of the movies Beyonce made after or during a given year
 function getMoviesByDateGTE(movies, targetYear) {
-  const yearOfMovies = movies.filter(movie => {
-    return (movie.year >= targetYear)
-  })
-  return yearOfMovies
+  return movies.filter(movie => (movie.year >= targetYear))
 }
 
 // 8. Return all hit songs where Beyonce was in a group
 function groupHits(songs) {
-  const groupOrNah = songs.filter(song => {
+  return songs.filter(song => {
     if (song.group == true) {
       return song
     }
   })
-  return groupOrNah
 }
 
 // 9. Return a hit song where Beyonce's hair is blonde
 function findBlondeHit(songs) {
-  const blondeSong = songs.find(song => {
-    return song.hair.includes("blonde")
-  })
-  return blondeSong
+  return songs.find(song => song.hair.includes("blonde"))
 }
 
 // 10. Return the hit song "Sorry"
 function sorry(songs) {
-  return songs.find(song => {
-    return song.title == "Sorry"
-  })
+  return songs.find(song => song.title == "Sorry")
 }
 
 // 11. Return a given song
 function getSong(songs, songName) {
-  const requestedSong = songs.find(song => {
+  return songs.find(song => {
     if (song.title == songName) {
       return song
     }
   })
-  return requestedSong
 }
 
 // 12. Return all hit songs where Beyonce's fierceness rating is 10
 function fiercestHits(songs) {
-  const fierceSongs = songs.filter(song => {
+  return songs.filter(song => {
     if (song.fierceness == 10) {
       return song
     }
   })
-  return fierceSongs
 }
 
 // 13. Return the sum of Beyonce's fierceness value for all of her hit songs
@@ -172,16 +148,12 @@ function hitDancerSum(songs) {
 
 // 18. Return an array of Beyonce's hairstyles without repeats
 function getHairstyles(songs) {
-  const allHairstyles = songs.map(song => {
-    return song.hair
-  })
-  return allHairstyles
+  return allHairstyles = songs.map(song => song.hair)
 }
 
 function uniqueHairstyles(songs) {
   let hairstyleList = getHairstyles(songs).flat();
-  let noDuplicates = [...new Set(hairstyleList)];
-  return noDuplicates
+  return [...new Set(hairstyleList)];
 }
 
 // 19. Return an object where the properties are song names and the value is an object which contains that song's fierceness and the average fierceness for all songs
@@ -241,24 +213,24 @@ function hairStyleFrequency(songs) {
   return hairFrequencyArray
 }
 
-/*console.log(printAllSongs(YonceHitSongs))
-console.log(printAllMovies(YonceHitMovies))
-console.log(hitSongTitles(YonceHitSongs))
-console.log(allFiercenessRatings(YonceHitSongs))
-console.log(songsWithBodySuits(YonceHitSongs))
-console.log(getSongsByFiercenessGTE(YonceHitSongs, 9))
-console.log(getMoviesByDateGTE(YonceHitMovies, 2008))
-console.log(groupHits(YonceHitSongs))
-console.log(findBlondeHit(YonceHitSongs))
-console.log(sorry(YonceHitSongs))
-console.log(getSong(YonceHitSongs, "Bootylicious"))
-console.log(fiercestHits(YonceHitSongs))
-console.log(hitFiercenessSum(YonceHitSongs))
-console.log(hitFiercenessAverage(YonceHitSongs))
-console.log(ratingSum(YonceHitMovies))
-console.log(ratingAverage(YonceHitMovies))
-console.log(hitDancerSum(YonceHitSongs))
-console.log(uniqueHairstyles(YonceHitSongs))
-console.log(songFiercenessByName(YonceHitSongs))
-console.log(movieRatingsByName(YonceHitMovies))
-console.log(hairStyleFrequency(YonceHitSongs))*/
+//1 console.log(printAllSongs(YonceHitSongs))
+//2 console.log(printAllMovies(YonceHitMovies))
+//3 console.log(hitSongTitles(YonceHitSongs))
+//4 console.log(allFiercenessRatings(YonceHitSongs))
+//5 console.log(songsWithBodySuits(YonceHitSongs))
+//6 console.log(getSongsByFiercenessGTE(YonceHitSongs, 9))
+//7 console.log(getMoviesByDateGTE(YonceHitMovies, 2008))
+//8 console.log(groupHits(YonceHitSongs))
+//9 console.log(findBlondeHit(YonceHitSongs))
+//10 console.log(sorry(YonceHitSongs))
+//11 console.log(getSong(YonceHitSongs, "Bootylicious"))
+//12 console.log(fiercestHits(YonceHitSongs))
+//13 console.log(hitFiercenessSum(YonceHitSongs))
+//14 console.log(hitFiercenessAverage(YonceHitSongs))
+//15 console.log(ratingSum(YonceHitMovies))
+//16 console.log(ratingAverage(YonceHitMovies))
+//17 console.log(hitDancerSum(YonceHitSongs))
+//18 console.log(uniqueHairstyles(YonceHitSongs))
+//19 console.log(songFiercenessByName(YonceHitSongs))
+//20 console.log(movieRatingsByName(YonceHitMovies))
+//21 console.log(hairStyleFrequency(YonceHitSongs))
